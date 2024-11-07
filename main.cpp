@@ -16,6 +16,7 @@ struct Patient{
     string name;
     int age;
     string cond; //3 possible coniditions: critical stable and discharged
+    string dept;
 };
 
 //all the functions will have declarations up here and defined below main
@@ -60,6 +61,8 @@ void displayData();
 
 //main function?
     //display initial hospital dept data
+    map<string, array<list<string>, 3>> hospitalDept;
+    hospitalDept["ER"] 
 
     //forloop for each day, 30 days total
         //print cout message of which day we are in
@@ -70,4 +73,4 @@ void displayData();
         //display updated dept data
         //maybe print summary
 
-    //return 0 :)
+    
