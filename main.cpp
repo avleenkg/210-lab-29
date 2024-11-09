@@ -61,8 +61,11 @@ void displayData();
 
 //main function?
     //display initial hospital dept data
-    map<string, array<list<Patient>, 3>> hospitalDept; //map with key as the dept name and value as an array of size 3 holding lists of patients?
-
+    map<string, array<list<Patient>, 3>> hospitalDept = { //map with key as the dept name and value as an array of size 3 holding lists of patients?
+        {"ER", array<list<Patient>, 3>()}, 
+        {"Surgery", array<list<Patient>, 3>()},
+        {"ICU", array<list<Patient>, 3>()}
+    };
     //forloop for each day, 30 days total
         //print cout message of which day we are in
         //for each of the depts
