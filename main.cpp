@@ -37,7 +37,6 @@ void displayData(map<string, array<list<Patient>, 3>>& h);
 
 
 int main() {
-    srand(time(0));
     map<string, array<list<Patient>, 3>> hospitalDept = { //map with key as the dept name and value as an array of size 3 holding lists of patients?
         {"ER", array<list<Patient>, 3>()}, 
         {"Surgery", array<list<Patient>, 3>()},
@@ -56,12 +55,16 @@ void readData(map<string, array<list<Patient>, 3>> &hospitalDept) {
         string name, condition, department;
         int age;
 
-        int num = rand() % 
+        srand(time(0));
 
-        while(fin >> name) {
+        int num = rand() % 25 + 1;
+        int read = 0;
+
+        while(read < num and getline(fin, name)) {
             fin >> age;
-            fin >> condition;
-            fin >> department;
+            fin.ignore();
+            getline(fin, condition);
+            getline(fin, department);
 
             Patient pt;
             pt.setname(name);
@@ -84,11 +87,10 @@ void readData(map<string, array<list<Patient>, 3>> &hospitalDept) {
                 index = 2;
             }
             hospitalDept[department][index].push_back(pt);
-
-            cout << "Patient data successfully read.\n";
-
+            read++; 
         }
-
+        
+        cout << "Patient data successfully read.\n";
         fin.close();
     }
     else {
