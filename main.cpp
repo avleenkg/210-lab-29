@@ -32,6 +32,7 @@ struct Patient{
 void readData(map<string, array<list<Patient>, 3>>& h);
 void findPatient(map<string, array<list<Patient>, 3>>& h);
 void transferPatient();
+void changeCond(map<string, array<list<Patient>, 3>>& hospitalData, Patient& p);
 void dischargePatient();
 void displayData(map<string, array<list<Patient>, 3>>& h);
 
@@ -89,7 +90,7 @@ void readData(map<string, array<list<Patient>, 3>> &hospitalDept) {
             hospitalDept[department][index].push_back(pt);
             read++; 
         }
-        
+
         cout << "Patient data successfully read.\n";
         fin.close();
     }
@@ -131,4 +132,22 @@ void findPatient(map<string, array<list<Patient>, 3>>& hospitalData) {
         }
     }
 }
+void changeCond(map<string, array<list<Patient>, 3>>& hospitalData, Patient& pt) {
+    int prob = rand() % 100;
 
+    string newcond;
+    if (prob < 40) {
+        newcond = pt.getcond();
+    }
+    else if (prob < 70) {
+        newcond = "Stable";
+    }
+    else {
+        newcond = "Discharged";
+    }
+
+    if (newcond != pt.getcond()) {
+        pt.setcond(newcond);
+        cout << "Patient's condition changed to: " << newcond << endl;
+    }
+}
