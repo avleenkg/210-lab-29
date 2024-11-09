@@ -1,0 +1,388 @@
+Alice Carter
+45
+stable
+ICU
+Ethan Turner
+34
+critical
+Surgery
+Mia Roberts
+61
+discharge
+ER
+Logan Bennett
+52
+stable
+Surgery
+Charlotte Gray
+29
+critical
+ER
+Liam Foster
+38
+stable
+ICU
+Isabella Cooper
+50
+discharge
+Surgery
+Noah Sanchez
+66
+critical
+ER
+Amelia Collins
+40
+stable
+ICU
+Benjamin Ward
+28
+critical
+Surgery
+Sophia Hughes
+73
+discharge
+ER
+James Perez
+33
+stable
+ICU
+Olivia Powell
+54
+critical
+Surgery
+Alexander Flores
+42
+discharge
+ER
+Emily Bell
+47
+stable
+ICU
+Daniel Reed
+61
+critical
+Surgery
+Grace Walker
+26
+discharge
+ER
+Matthew Green
+35
+stable
+ICU
+Ava Adams
+48
+critical
+Surgery
+Henry Scott
+55
+discharge
+ER
+Abigail Bailey
+32
+stable
+ICU
+Lucas Rivera
+43
+critical
+Surgery
+Lily Stewart
+60
+discharge
+ER
+Samuel Jenkins
+37
+stable
+ICU
+Ella Sanders
+44
+critical
+Surgery
+David Morales
+63
+discharge
+ER
+Zoe Mitchell
+31
+stable
+ICU
+Nathan Price
+46
+critical
+Surgery
+Scarlett Baker
+58
+discharge
+ER
+Ryan Gonzalez
+39
+stable
+ICU
+Victoria Brooks
+27
+critical
+Surgery
+Adam Wood
+53
+discharge
+ER
+Madison Murphy
+29
+stable
+ICU
+Joshua Long
+41
+critical
+Surgery
+Hannah Cox
+65
+discharge
+ER
+Andrew Foster
+34
+stable
+ICU
+Sofia Howard
+59
+critical
+Surgery
+Mason Diaz
+36
+discharge
+ER
+Aubrey White
+51
+stable
+ICU
+Evan Taylor
+56
+critical
+Surgery
+Natalie Lee
+38
+discharge
+ER
+Aaron Thomas
+30
+stable
+ICU
+Brooklyn Hall
+49
+critical
+Surgery
+Wyatt Nelson
+67
+discharge
+ER
+Chloe Martin
+44
+stable
+ICU
+Jack Perez
+53
+critical
+Surgery
+Hazel Garcia
+42
+discharge
+ER
+Oliver Moore
+35
+stable
+ICU
+Riley Allen
+64
+critical
+Surgery
+Levi King
+28
+discharge
+ER
+Paisley Wright
+46
+stable
+ICU
+Jayden Turner
+50
+critical
+Surgery
+Lillian Young
+57
+discharge
+ER
+Gabriel Hill
+31
+stable
+ICU
+Avery Adams
+39
+critical
+Surgery
+Isaac Mitchell
+63
+discharge
+ER
+Caroline Hernandez
+32
+stable
+ICU
+Joseph Ward
+43
+critical
+Surgery
+Victoria Clark
+59
+discharge
+ER
+Hunter Ramirez
+27
+stable
+ICU
+Stella Lewis
+54
+critical
+Surgery
+Brayden Walker
+41
+discharge
+ER
+Maya Robinson
+30
+stable
+ICU
+Lincoln Martinez
+62
+critical
+Surgery
+Hazel Gonzalez
+33
+discharge
+ER
+Elijah Allen
+49
+stable
+ICU
+Nora Evans
+51
+critical
+Surgery
+Christopher Carter
+65
+discharge
+ER
+Penelope Foster
+34
+stable
+ICU
+Henry Brooks
+56
+critical
+Surgery
+Sadie Morris
+60
+discharge
+ER
+Caleb Long
+36
+stable
+ICU
+Samantha Thomas
+47
+critical
+Surgery
+Eli Flores
+31
+discharge
+ER
+Layla Bennett
+45
+stable
+ICU
+Luke Green
+58
+critical
+Surgery
+Savannah White
+38
+discharge
+ER
+Mason Bell
+50
+stable
+ICU
+Ariana Adams
+66
+critical
+Surgery
+Owen Sanders
+42
+discharge
+ER
+Victoria Parker
+27
+stable
+ICU
+David Wilson
+54
+critical
+Surgery
+Sophie Roberts
+48
+discharge
+ER
+Michael Diaz
+35
+stable
+ICU
+Lydia Perez
+61
+critical
+Surgery
+Gabriel Gray
+33
+discharge
+ER
+Scarlett Ward
+52
+stable
+ICU
+Asher Gonzalez
+44
+critical
+Surgery
+Lily Morgan
+64
+discharge
+ER
+Samuel Thompson
+29
+stable
+ICU
+Ellie Sanchez
+60
+critical
+Surgery
+Josiah Clark
+37
+discharge
+ER
+Aubrey Ramirez
+43
+stable
+ICU
+Jacob Brooks
+62
+critical
+Surgery
+Layla Howard
+36
+discharge
+ER
+Nicholas Evans
+47
+stable
+ICU
+Emma Turner
+55
+critical
+Surgery

@@ -50,6 +50,8 @@ void readData(map<string, array<list<Patient>, 3>> h);
     //add cout line which tells who got added to where
 void addPatient();
 
+void findPatient();
+
 //function to transfer patient to different dept
     //cout ask patient name
     //cout ask dept
@@ -68,7 +70,7 @@ void dischargePatient();
     //for loop for each department
     //output number of patients with their conditions?
     //output patient names in each condition list
-void displayData();
+void displayData(map<string, array<list<Patient>, 3>> h);
 
 
 int main() {
@@ -78,6 +80,9 @@ int main() {
         {"Surgery", array<list<Patient>, 3>()},
         {"ICU", array<list<Patient>, 3>()}
     };
+
+    readData(hospitalDept);
+    displayData(hospitalDept);
     //forloop for each day, 30 days total
         //print cout message of which day we are in
         //for each of the depts
@@ -117,11 +122,27 @@ void readData(map<string, array<list<Patient>, 3>> hospitalDept) {
             else if (condition == "discharged"){
                 index = 2;
             }
+            hospitalDept[department][index].push_back(pt);
+
+            cout << "Patient data successfully read.\n";
+
         }
 
         fin.close();
     }
     else {
         cout << "Error opening file.\n";
+    }
+}
+void displayData(map<string, array<list<Patient>, 3>> hospitalData) {
+    for (const auto &dept : hospitalData) {
+        cout << "Department: " << dept.first << endl;
+        string conditions[] = {"Critical", "Stable", "Discharged"};
+        for (int i = 0; i < 3; i++){
+            cout << "\t" << conditions[i] << " patients:\n";
+            for (const auto &pt : dept.second[i]) {
+                cout << "\t\t" << pt.getname() << endl; 
+            }
+        }
     }
 }
