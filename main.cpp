@@ -1,4 +1,4 @@
-//PSEUDOCODE & BARECODE FOR PROJECT -- lab 29
+//PSEUDOCODE & BARECODE FOR PROJECT -- lab 29, 30, 31
 
 #include <iostream>
 #include <fstream> 
