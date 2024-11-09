@@ -41,16 +41,16 @@ struct Patient{
     //close file
     //else
         //error opening file
-void readData(map<string, array<list<Patient>, 3>> h);
+void readData(map<string, array<list<Patient>, 3>>& h);
 
 //function which will add patient to dept
     //cout ask patient name
     //locate dept and find patient in list
     //possibly change of condition
     //add cout line which tells who got added to where
-void addPatient();
+//void addPatient();
 
-void findPatient();
+void findPatient(map<string, array<list<Patient>, 3>>& h);
 
 //function to transfer patient to different dept
     //cout ask patient name
@@ -95,7 +95,7 @@ int main() {
         //maybe print summary
 
 }    
-void readData(map<string, array<list<Patient>, 3>> hospitalDept) {
+void readData(map<string, array<list<Patient>, 3>> &hospitalDept) {
     ifstream fin ("patientinfo.txt");
     if (fin.is_open()) {
         string name, condition, department;
@@ -146,3 +146,25 @@ void displayData(map<string, array<list<Patient>, 3>> hospitalData) {
         }
     }
 }
+void findPatient(map<string, array<list<Patient>, 3>>& hospitalData) {
+    string search;
+    cout << "Enter patient's name to search: ";
+    cin >> search;
+
+    for (const auto &dept : hospitalData) {
+        for (int i = 0; i < 3; i++) {
+            auto it = find_if(dept.second[i].begin(), dept.second[i].end(), [search](const Patient& pt) { return pt.getname() == search; });
+
+            if (it != dept.second[i].end()) {
+                cout << "Patient found:\n";
+                cout << "Name: " << it->getname() << endl;
+                cout << "Age: " << it->getage() << endl;
+                cout << "Condition: " << it->getcond() << endl;
+                cout << "Department: " << it->getdept() << endl;
+            }
+        
+        }
+    }
+    
+}
+
