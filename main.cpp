@@ -1,17 +1,15 @@
-//PSEUDOCODE FOR PROJECT -- lab 29
+//PSEUDOCODE & BARECODE FOR PROJECT -- lab 29
 
-//include iostream and other libraries
 #include <iostream>
-#include <fstream> //reading in data
+#include <fstream> 
 #include <map>
 #include <array>
 #include <string>
 #include <list>
+#include <cstdlib>
 using namespace std;
 
 
-//i think a struct is good to hold patient info since were reading
-//in names ages and conditions
 struct Patient{
     private: 
     string name;
@@ -31,50 +29,15 @@ struct Patient{
     string getdept() const          { return dept; }
 };
 
-//all the functions will have declarations up here and defined below main
-
-//function which will read data from file
-    //open file for reading
-    //if file opens then for each line
-        //read in patient name, age, condition and department they need to go to
-        //if the patient to that department
-    //close file
-    //else
-        //error opening file
 void readData(map<string, array<list<Patient>, 3>>& h);
-
-//function which will add patient to dept
-    //cout ask patient name
-    //locate dept and find patient in list
-    //possibly change of condition
-    //add cout line which tells who got added to where
-//void addPatient();
-
 void findPatient(map<string, array<list<Patient>, 3>>& h);
-
-//function to transfer patient to different dept
-    //cout ask patient name
-    //cout ask dept
-    // find patient in list and transfer them
-    //add cout line which tells console who got moved to where
 void transferPatient();
-
-//function to discharge
-    //ask name
-    //ask dept
-    //if patient is in the discharge list then move them out
-    //cout who got removed
 void dischargePatient();
-
-//display function
-    //for loop for each department
-    //output number of patients with their conditions?
-    //output patient names in each condition list
-void displayData(map<string, array<list<Patient>, 3>> h);
+void displayData(map<string, array<list<Patient>, 3>>& h);
 
 
 int main() {
-    //display initial hospital dept data
+    srand(time(0));
     map<string, array<list<Patient>, 3>> hospitalDept = { //map with key as the dept name and value as an array of size 3 holding lists of patients?
         {"ER", array<list<Patient>, 3>()}, 
         {"Surgery", array<list<Patient>, 3>()},
@@ -83,23 +46,17 @@ int main() {
 
     readData(hospitalDept);
     displayData(hospitalDept);
-    //forloop for each day, 30 days total
-        //print cout message of which day we are in
-        //for each of the depts
-            //add new pt, update condition, transfer, or discharge
-            //^ still deciding if this should be based on random probability
 
-    //maybe create a function 
-
-        //display updated dept data
-        //maybe print summary
-
+    return 0;
 }    
+
 void readData(map<string, array<list<Patient>, 3>> &hospitalDept) {
     ifstream fin ("patientinfo.txt");
     if (fin.is_open()) {
         string name, condition, department;
         int age;
+
+        int num = rand() % 
 
         while(fin >> name) {
             fin >> age;
@@ -111,6 +68,10 @@ void readData(map<string, array<list<Patient>, 3>> &hospitalDept) {
             pt.setage(age);
             pt.setcond(condition);
             pt.setdept(department); 
+
+            if (hospitalDept.find(department) == hospitalDept.end()) {
+                hospitalDept[department] = array<list<Patient>, 3>();
+            }
 
             int index = 0;
             if (condition == "critical") {
@@ -134,7 +95,7 @@ void readData(map<string, array<list<Patient>, 3>> &hospitalDept) {
         cout << "Error opening file.\n";
     }
 }
-void displayData(map<string, array<list<Patient>, 3>> hospitalData) {
+void displayData(map<string, array<list<Patient>, 3>> &hospitalData) {
     for (const auto &dept : hospitalData) {
         cout << "Department: " << dept.first << endl;
         string conditions[] = {"Critical", "Stable", "Discharged"};
@@ -162,9 +123,10 @@ void findPatient(map<string, array<list<Patient>, 3>>& hospitalData) {
                 cout << "Condition: " << it->getcond() << endl;
                 cout << "Department: " << it->getdept() << endl;
             }
-        
+            else {
+                cout << "Patient not found.\n";
+            }
         }
     }
-    
 }
 
