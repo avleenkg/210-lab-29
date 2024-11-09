@@ -58,13 +58,48 @@ int main() {
         int probability = rand() % 100;
         if (probability < 20) {
             string names[] = {"Jacob Richards", "Eliana May", "Melissa Gomez", "Oraline Cruz", "Suki James", "Vincent Curry", "Wardell Thompson"};
+            string conds[] = {"Critical", "Stable", "Discharged"};
+            int condcount = sizeof(conds) / sizeof(conds[0]);
             int count = sizeof(names) / sizeof(names[0]);
             string randname = names[rand() % count];
+            string randcond = conds[rand() % condcount];
 
             Patient newpt;
             newpt.setname(randname);
             newpt.setage(rand() % 40 + 40);
-            newpt.setcond()
+            newpt.setcond(randcond);
+            int index = 0;
+            if (randcond == "Critical"){
+                newpt.setdept("Surgery");
+                index = 0;
+            }
+            else if (randcond == "Stable") {
+                newpt.setdept("ICU");
+                index = 1;
+            }
+            else {
+                newpt.setdept("ER");
+                index = 2;
+            }
+
+            hospitalDept[newpt.getdept()][index].push_back(newpt);
+            cout << "New patient added: \n";
+            cout << "\tName: " << randname << endl;
+            cout << "\tAge: " << newpt.getage() << endl;
+            cout << "\tCondition: " << newpt.getcond() << endl;
+            cout << "\tDepartment: " << newpt.getdept() << endl;
+
+        }
+
+        for (auto &dept : hospitalDept) {
+            for (int i = 0; i < 3; i++) {
+                for (auto it = dept.second[i].begin(); it != dept.second[i].end();) {
+                    changeCond(hospitalDept, *it);
+
+                    string newdept;
+                    
+                }
+            }
         }
     }
 
