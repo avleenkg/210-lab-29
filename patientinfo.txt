@@ -1,108 +1,108 @@
 Alice Carter
 45
-stable
+Stable
 ICU
 Ethan Turner
 34
-critical
+Critical
 Surgery
 Mia Roberts
 61
-discharge
+Discharge
 ER
 Logan Bennett
 52
-stable
+Stable
 Surgery
 Charlotte Gray
 29
-critical
+Critical
 ER
 Liam Foster
 38
-stable
+Stable
 ICU
 Isabella Cooper
 50
-discharge
+Discharge
 Surgery
 Noah Sanchez
 66
-critical
+Critical
 ER
 Amelia Collins
 40
-stable
+Stable
 ICU
 Benjamin Ward
 28
-critical
+Critical
 Surgery
 Sophia Hughes
 73
-discharge
+Discharge
 ER
 James Perez
 33
-stable
+Stable
 ICU
 Olivia Powell
 54
-critical
+Critical
 Surgery
 Alexander Flores
 42
-discharge
+Discharge
 ER
 Emily Bell
 47
-stable
+Stable
 ICU
 Daniel Reed
 61
-critical
+Critical
 Surgery
 Grace Walker
 26
-discharge
+Discharge
 ER
 Matthew Green
 35
-stable
+Stable
 ICU
 Ava Adams
 48
-critical
+Critical
 Surgery
 Henry Scott
 55
-discharge
+Discharge
 ER
 Abigail Bailey
 32
-stable
+Stable
 ICU
 Lucas Rivera
 43
-critical
+Critical
 Surgery
 Lily Stewart
 60
-discharge
+Discharge
 ER
 Samuel Jenkins
 37
-stable
+Stable
 ICU
 Ella Sanders
 44
-critical
+Critical
 Surgery
 David Morales
 63
-discharge
+Discharge
 ER
 Zoe Mitchell
 31
-stable
+Stable
 ICU
