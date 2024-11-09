@@ -16,7 +16,7 @@ struct Patient{
     string name;
     int age;
     string cond; //3 possible coniditions: critical stable and discharged
-    string dept;
+    string dept; //holds info about which department patient needs to be assigned to
 };
 
 //all the functions will have declarations up here and defined below main
@@ -61,14 +61,15 @@ void displayData();
 
 //main function?
     //display initial hospital dept data
-    map<string, array<list<string>, 3>> hospitalDept;
-    hospitalDept["ER"] 
+    map<string, array<list<Patient>, 3>> hospitalDept; //map with key as the dept name and value as an array of size 3 holding lists of patients?
 
     //forloop for each day, 30 days total
         //print cout message of which day we are in
         //for each of the depts
             //add new pt, update condition, transfer, or discharge
             //^ still deciding if this should be based on random probability
+
+    //maybe create a function 
 
         //display updated dept data
         //maybe print summary
