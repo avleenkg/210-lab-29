@@ -6,6 +6,7 @@
 #include <array>
 #include <string>
 #include <list>
+#include <algorithm>
 #include <cstdlib>
 using namespace std;
 
@@ -30,14 +31,16 @@ struct Patient{
 };
 
 void readData(map<string, array<list<Patient>, 3>>& h);
-void findPatient(map<string, array<list<Patient>, 3>>& h);
-void transferPatient();
+//void findPatient(map<string, array<list<Patient>, 3>>& h);
+//void transferPatient();
 void changeCond(map<string, array<list<Patient>, 3>>& h, Patient& p);
-void dischargePatient(map<string, array<list<Patient>, 3>>& h, Patient& p);
-void displayData(map<string, array<list<Patient>, 3>>& h);
+//void dischargePatient(map<string, array<list<Patient>, 3>>& h, Patient& p);
+void displayData(const map<string, array<list<Patient>, 3>>& h);
 
 
 int main() {
+    srand(time(0));
+
     map<string, array<list<Patient>, 3>> hospitalDept = { //map with key as the dept name and value as an array of size 3 holding lists of patients?
         {"ER", array<list<Patient>, 3>()}, 
         {"Surgery", array<list<Patient>, 3>()},
@@ -46,6 +49,24 @@ int main() {
 
     readData(hospitalDept);
     displayData(hospitalDept);
+
+    //simulation
+    for (int day = 0; day < 30; day++) {
+        cout << "-------Day " << day + 1 << "-------\n";
+
+        //random probability of things happening:
+        int probability = rand() % 100;
+        if (probability < 20) {
+            string names[] = {"Jacob Richards", "Eliana May", "Melissa Gomez", "Oraline Cruz", "Suki James", "Vincent Curry", "Wardell Thompson"};
+            int count = sizeof(names) / sizeof(names[0]);
+            string randname = names[rand() % count];
+
+            Patient newpt;
+            newpt.setname(randname);
+            newpt.setage(rand() % 40 + 40);
+            newpt.setcond()
+        }
+    }
 
     return 0;
 }    
@@ -152,5 +173,5 @@ void changeCond(map<string, array<list<Patient>, 3>>& hospitalData, Patient& pt)
     }
 }
 void dischargePatient(map<string, array<list<Patient>, 3>>& h, Patient& p) {
-    
+
 }
