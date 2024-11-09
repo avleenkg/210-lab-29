@@ -41,7 +41,7 @@ struct Patient{
     //close file
     //else
         //error opening file
-void readData();
+void readData(map<string, array<list<Patient>, 3>> h);
 
 //function which will add patient to dept
     //cout ask patient name
@@ -90,10 +90,10 @@ int main() {
         //maybe print summary
 
 }    
-void readData() {
+void readData(map<string, array<list<Patient>, 3>> hospitalDept) {
     ifstream fin ("patientinfo.txt");
     if (fin.is_open()) {
-        string name, department, condition;
+        string name, condition, department;
         int age;
 
         while(fin >> name) {
@@ -104,8 +104,19 @@ void readData() {
             Patient pt;
             pt.setname(name);
             pt.setage(age);
-            pt.setcond(cond);
+            pt.setcond(condition);
             pt.setdept(department); 
+
+            int index = 0;
+            if (condition == "critical") {
+                index = 0;
+            }
+            else if (condition == "stable") {
+                index = 1;
+            }
+            else if (condition == "discharged"){
+                index = 2;
+            }
         }
 
         fin.close();
