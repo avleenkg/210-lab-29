@@ -34,7 +34,7 @@ void readData(map<string, array<list<Patient>, 3>>& h);
 //void findPatient(map<string, array<list<Patient>, 3>>& h);
 //void transferPatient();
 void changeCond(map<string, array<list<Patient>, 3>>& h, Patient& p);
-//void dischargePatient(map<string, array<list<Patient>, 3>>& h, Patient& p);
+void dischargePatient(map<string, array<list<Patient>, 3>>& h, Patient& p);
 void displayData(const map<string, array<list<Patient>, 3>>& h);
 
 
@@ -94,10 +94,41 @@ int main() {
         for (auto &dept : hospitalDept) {
             for (int i = 0; i < 3; i++) {
                 for (auto it = dept.second[i].begin(); it != dept.second[i].end();) {
+                    
                     changeCond(hospitalDept, *it);
 
                     string newdept;
-                    
+                    int index2;
+                    if (it->getcond() == "Critical") {
+                        newdept = "Surgery";
+                        index2 = 0;
+                    }
+                    else if (it->getcond() == "Stable") {
+                        newdept = "ICU";
+                        index2 = 1;
+                    }
+                    else {
+                        newdept = "ER";
+                        index2 = 2;
+                    }
+
+                    if (newdept != it->getdept()){
+                        Patient newmovedpt = *it;
+                        newmovedpt.setdept(newdept);
+                        hospitalDept[newdept][index2].push_back(newmovedpt);
+                        it = dept.second[i].erase(it);
+                    }
+                    else {
+                        if (it->getcond() == "Discharged") {
+                            dischargePatient(hospitalDept, *it);
+                            cout << "Patient: " << it->getname() << " has been discharged.\n";
+                            it = dept.second[i].erase(it);
+                        }
+                        else {
+                            it++;
+                        }
+                    }
+
                 }
             }
         }
@@ -166,7 +197,7 @@ void displayData(map<string, array<list<Patient>, 3>> &hospitalData) {
         }
     }
 }
-void findPatient(map<string, array<list<Patient>, 3>>& hospitalData) {
+/*void findPatient(map<string, array<list<Patient>, 3>>& hospitalData) {
     string search;
     cout << "Enter patient's name to search: ";
     cin >> search;
@@ -188,6 +219,7 @@ void findPatient(map<string, array<list<Patient>, 3>>& hospitalData) {
         }
     }
 }
+*/
 void changeCond(map<string, array<list<Patient>, 3>>& hospitalData, Patient& pt) {
     int prob = rand() % 100;
 
@@ -207,6 +239,16 @@ void changeCond(map<string, array<list<Patient>, 3>>& hospitalData, Patient& pt)
         cout << "Patient's condition changed to: " << newcond << endl;
     }
 }
-void dischargePatient(map<string, array<list<Patient>, 3>>& h, Patient& p) {
-
+void dischargePatient(map<string, array<list<Patient>, 3>>& hospitalDept, Patient& pt) {
+    string dept = pt.getdept();
+    if (pt.getcond() == "Discharged") {
+        for (int i = 0; i < 3; i++) {
+            auto it = find_if(hospitalDept[dept][i].begin(), hospitalDept[dept][i].end(), [&pt](const Patient& p) {return p.getname() == pt.getname();});
+            if (it != hospitalDept[dept][i].end()) {
+                hospitalDept[dept][i].erase(it);
+                cout << "Patient " << pt.getname() << " has been discharged and removed from the " << dept << " department.\n";
+                return;
+            }
+        }
+    }
 }
