@@ -32,8 +32,8 @@ struct Patient{
 void readData(map<string, array<list<Patient>, 3>>& h);
 void findPatient(map<string, array<list<Patient>, 3>>& h);
 void transferPatient();
-void changeCond(map<string, array<list<Patient>, 3>>& hospitalData, Patient& p);
-void dischargePatient();
+void changeCond(map<string, array<list<Patient>, 3>>& h, Patient& p);
+void dischargePatient(map<string, array<list<Patient>, 3>>& h, Patient& p);
 void displayData(map<string, array<list<Patient>, 3>>& h);
 
 
@@ -150,4 +150,7 @@ void changeCond(map<string, array<list<Patient>, 3>>& hospitalData, Patient& pt)
         pt.setcond(newcond);
         cout << "Patient's condition changed to: " << newcond << endl;
     }
+}
+void dischargePatient(map<string, array<list<Patient>, 3>>& h, Patient& p) {
+    
 }
