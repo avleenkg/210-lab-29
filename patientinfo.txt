@@ -1,0 +1,108 @@
+Alice Carter
+45
+stable
+ICU
+Ethan Turner
+34
+critical
+Surgery
+Mia Roberts
+61
+discharge
+ER
+Logan Bennett
+52
+stable
+Surgery
+Charlotte Gray
+29
+critical
+ER
+Liam Foster
+38
+stable
+ICU
+Isabella Cooper
+50
+discharge
+Surgery
+Noah Sanchez
+66
+critical
+ER
+Amelia Collins
+40
+stable
+ICU
+Benjamin Ward
+28
+critical
+Surgery
+Sophia Hughes
+73
+discharge
+ER
+James Perez
+33
+stable
+ICU
+Olivia Powell
+54
+critical
+Surgery
+Alexander Flores
+42
+discharge
+ER
+Emily Bell
+47
+stable
+ICU
+Daniel Reed
+61
+critical
+Surgery
+Grace Walker
+26
+discharge
+ER
+Matthew Green
+35
+stable
+ICU
+Ava Adams
+48
+critical
+Surgery
+Henry Scott
+55
+discharge
+ER
+Abigail Bailey
+32
+stable
+ICU
+Lucas Rivera
+43
+critical
+Surgery
+Lily Stewart
+60
+discharge
+ER
+Samuel Jenkins
+37
+stable
+ICU
+Ella Sanders
+44
+critical
+Surgery
+David Morales
+63
+discharge
+ER
+Zoe Mitchell
+31
+stable
+ICU
