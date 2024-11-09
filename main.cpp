@@ -13,10 +13,22 @@ using namespace std;
 //i think a struct is good to hold patient info since were reading
 //in names ages and conditions
 struct Patient{
+    private: 
     string name;
     int age;
     string cond; //3 possible coniditions: critical stable and discharged
     string dept; //holds info about which department patient needs to be assigned to
+
+    public: 
+    void setname (string n)         { name = n; }
+    void setage (int a)             { age = a; }
+    void setcond (string c)         { cond = c; }
+    void setdept (string d)         { dept = d; }
+
+    string getname() const          { return name; }
+    int getage() const              { return age; }
+    string getcond() const          { return cond; }
+    string getdept() const          { return dept; }
 };
 
 //all the functions will have declarations up here and defined below main
@@ -59,7 +71,7 @@ void dischargePatient();
 void displayData();
 
 
-//main function?
+int main() {
     //display initial hospital dept data
     map<string, array<list<Patient>, 3>> hospitalDept = { //map with key as the dept name and value as an array of size 3 holding lists of patients?
         {"ER", array<list<Patient>, 3>()}, 
@@ -77,4 +89,28 @@ void displayData();
         //display updated dept data
         //maybe print summary
 
-    
+}    
+void readData() {
+    ifstream fin ("patientinfo.txt");
+    if (fin.is_open()) {
+        string name, department, condition;
+        int age;
+
+        while(fin >> name) {
+            fin >> age;
+            fin >> condition;
+            fin >> department;
+
+            Patient pt;
+            pt.setname(name);
+            pt.setage(age);
+            pt.setcond(cond);
+            pt.setdept(department); 
+        }
+
+        fin.close();
+    }
+    else {
+        cout << "Error opening file.\n";
+    }
+}
