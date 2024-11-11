@@ -1,0 +1,21 @@
+I encountered a lot of bugs while coding my project because I over anticipated the difficulty that I could actually replicate with my proposal. Because of this, I had to constantly go back and change some key features I had planned.
+
+1. I tried to make my program user based at first, asking the console if we want to add a patient, find a patient, or discharge them. But, I realized since the requirement was reading in data, I might as well keep it all randomized. 
+
+2. I was struggling to figure out how to be efficient with my code because I felt that I was writing DOZENS of loops. So, I decided to utilize the lambda functions we were shown in the algorithms demo code. It was a bit tough at first because I didn't know we had to pass arguments into the [] in the function. But I made it work!
+
+3. I was trying to access the private variables in the struct because I realized those shouldn't be freely available. When it wasn't working, I remembered to code setter and getter functions. 
+
+4. My code was creating a lot of duplicates when I was running certain functions, so I remembered to pass my map and Patient by reference so that copies weren't created.
+
+5. I didn't fully know the syntax to initialize an empty array of size 3 of lists made of Patient objects, so for this portion I had to utilize google and additional resources. I was watching videos on complex variables and data types.
+
+6. THIS PART TOOK THE LONGEST - when I completed most of my code and was trying to run it, there were no patients left in the last 5-10 days of my simulation. It took a very long time to mess with and adjust the probabilities I coded into my program to simulate a month in the hospital. I think it might still be a bit off but I tried my best with it.
+
+7. I found while running my code that even though the data I was reading in from my file didn't have any duplicates, my output was still showing 2 of the same patients. It took a while to debug but I wrote a few loops to double check if that patient with the condition exists, and if it does, then don't add it again.
+
+8. I had an incorrect if and while statement somewhere because of my probabilities and loops, so I ran into an infinite output run. That's never fun to deal with but shortly after I found out that the parameters I had set for the if statements were overlapping causing them to loop infinitely.
+
+9. Originally when writing my main function and probability, I was doubling the code for deleting/discharging a patient. I was calling the discharge patient function which was using erase() in it, and also trying to erase() in the main function. This led to patients not being discharged properly. I changed my discharge patient function to only output the patient being removed and the department they were in.
+
+10. When I was done with 99% of my code and just touching up the last few bits, I kept running my program but I couldn't see about half the days from the month's data. So I decided to temporarily edit my for loop to only show 5 days and 10 days and it worked perfectly. Still not sure why it doesn't output all the lines. 
