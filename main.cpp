@@ -53,9 +53,9 @@ int main() {
 
         //random probability of things happening:
         int probability = rand() % 100;
-        if (probability < 20) {
+        if (probability < 25) {
             string names[] = {"Jacob Richards", "Eliana May", "Melissa Gomez", "Oraline Cruz", "Suki James", "Vincent Curry", "Wardell Thompson"};
-            string conds[] = {"Critical", "Stable", "Discharged"};
+            string conds[] = {"Critical", "Stable"};
             int condcount = sizeof(conds) / sizeof(conds[0]);
             int count = sizeof(names) / sizeof(names[0]);
             string randname = names[rand() % count];
@@ -79,59 +79,54 @@ int main() {
                 index = 2;
             }
 
-            hospitalDept[newpt.getdept()][index].push_back(newpt);
-            cout << "New patient added: \n";
-            cout << "\tName: " << randname << endl;
-            cout << "\tAge: " << newpt.getage() << endl;
-            cout << "\tCondition: " << newpt.getcond() << endl;
-            cout << "\tDepartment: " << newpt.getdept() << endl;
-
-        }
-
-        for (auto &dept : hospitalDept) {
-            for (int i = 0; i < 3; i++) {
-                for (auto it = dept.second[i].begin(); it != dept.second[i].end();) {
-                    
-                    changeCond(hospitalDept, *it);
-                    
-                    if (it->getcond() == "Discharged") {
-                            dischargePatient(hospitalDept, *it);
-                            it = dept.second[i].begin();
-                    }
-
-                    else {
-                        string newdept;
-                        int index2;
-                        if (it->getcond() == "Critical") {
-                            newdept = "Surgery";
-                            index2 = 0;
-                        }
-                        else if (it->getcond() == "Stable") {
-                            newdept = "ICU";
-                            index2 = 1;
-                        }
-                        else {
-                            newdept = "ER";
-                            index2 = 2;
-                        }
-
-                        if (newdept != it->getdept()){
-                            Patient newmovedpt = *it;
-                            newmovedpt.setdept(newdept);
-                            hospitalDept[newdept][index2].push_back(newmovedpt);
-                            it = dept.second[i].erase(it);
-                        }
-                        else {
-                            it++;
-                        }
-                    }
-
+            bool isdouble = false;
+            for (const auto &pt1 : hospitalDept[newpt.getdept()][index]){
+                if (pt1.getname() == newpt.getname()){
+                    isdouble = true;
+                    break;
                 }
             }
+            if (!isdouble) {
+                for (auto &dept : hospitalDept) {
+                    for (auto &cond : dept.second) {
+                        for (auto it = cond.begin(); it != cond.end(); it++) {
+                            if (it->getname() == newpt.getname()) {
+                                cond.erase(it);
+                                break;
+                            }
+                        }
+                    }
+                }
+                hospitalDept[newpt.getdept()][index].push_back(newpt);
+                cout << "New patient added: \n";
+                cout << "\tName: " << randname << endl;
+                cout << "\tAge: " << newpt.getage() << endl;
+                cout << "\tCondition: " << newpt.getcond() << endl;
+                cout << "\tDepartment: " << newpt.getdept() << endl;
+            }
         }
+
+            for (auto &dept : hospitalDept) {
+                for (int i = 0; i < 3; i++) {
+                    for (auto it = dept.second[i].begin(); it != dept.second[i].end();) {
+                        int patientprob = rand() % 100;
+                        if (patientprob < 15) {
+                            changeCond(hospitalDept, *it);
+                        }
+
+                        if (probability < 30 && it->getcond() == "Discharged") {
+                                dischargePatient(hospitalDept, *it);
+                                it = dept.second[i].erase(it);
+                        }
+                        else {
+                                it++;
+                            }
+                    }
+                }
+
+            }
         displayData(hospitalDept);
     }
-
     return 0;
 }    
 
@@ -143,7 +138,7 @@ void readData(map<string, array<list<Patient>, 3>> &hospitalDept) {
 
         srand(time(0));
 
-        int num = rand() % 25 + 1;
+        int num = rand() % 75 + 17;
         int read = 0;
 
         while(read < num and getline(fin, name)) {
@@ -214,17 +209,7 @@ void changeCond(map<string, array<list<Patient>, 3>>& hospitalData, Patient& pt)
         cout << "Patient " << pt.getname() << "'s condition changed to: " << newcond << endl;
     }
 }
+
 void dischargePatient(map<string, array<list<Patient>, 3>>& hospitalDept, Patient& pt) {
-    string dept = pt.getdept();
-    if (pt.getcond() == "Discharged") {
-        for (int i = 0; i < 3; i++) {
-            auto it = find_if(hospitalDept[dept][i].begin(), hospitalDept[dept][i].end(), [&pt](const Patient& p) {return p.getname() == pt.getname();});
-            if (it != hospitalDept[dept][i].end()) {
-                string ptname = pt.getname();
-                cout << "Patient " << ptname << " has been discharged and removed from the " << dept << " department.\n";
-                hospitalDept[dept][i].erase(it);
-                return;
-            }
-        }
-    }
+    cout << "Patient: " << pt.getname() << " has been discharged and removed from the " << pt.getdept() << " department.\n";
 }
